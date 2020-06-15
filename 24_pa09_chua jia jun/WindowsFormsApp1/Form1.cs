@@ -24,8 +24,8 @@ namespace WindowsFormsApp1
 
         private void btn_Convert_Click(object sender, EventArgs e)
         {
-            
-                    
+
+
             if (rb_US.Checked)
             {
                 try
@@ -33,13 +33,13 @@ namespace WindowsFormsApp1
                     decimal amount = System.Convert.ToDecimal(txt_Amount.Text);
                     decimal converted_amount = amount * 0.74M;
                     txt_Converted.Text = "$" + converted_amount.ToString();
-                    
+
                 }
                 catch (FormatException)
                 {
                     txt_Amount.Clear();
                     txt_Converted.Clear();
-                    
+
                 }
             }
             else if (rb_Yen.Checked)
@@ -48,17 +48,31 @@ namespace WindowsFormsApp1
                 {
                     decimal amount = System.Convert.ToDecimal(txt_Amount.Text);
                     decimal converted_amount = amount * 81.97M;
-                    txt_Converted.Text =  converted_amount.ToString() + " Yen";
-                    
+                    txt_Converted.Text = converted_amount.ToString() + " Yen";
+
                 }
                 catch (FormatException)
                 {
                     txt_Amount.Clear();
                     txt_Converted.Clear();
-                    
+
                 }
             }
-           
+            else if (rb_Ringgit.Checked)
+            {
+                try
+                {
+                    decimal amount = System.Convert.ToDecimal(txt_Amount.Text);
+                    decimal converted_amount = amount * 3.01M;
+                    txt_Converted.Text = converted_amount.ToString() + " Ringgit";
+                }
+                catch (FormatException)
+                {
+                    txt_Amount.Clear();
+                    txt_Converted.Clear();
+                }
+
+            }
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -73,6 +87,11 @@ namespace WindowsFormsApp1
         }
 
         private void rb_Yen_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_Ringgit_CheckedChanged(object sender, EventArgs e)
         {
 
         }
